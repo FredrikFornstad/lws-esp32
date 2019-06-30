@@ -10,11 +10,13 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_system.h"
-#include "esp_spi_flash.h"
+#include <nvs.h>
 
+#include <libwebsockets.h>
 
 void app_main()
 {
+    struct lws_client_connect_info i;
     printf("Hello world!\n");
 
     /* Print chip information */
@@ -26,9 +28,6 @@ void app_main()
             (chip_info.features & CHIP_FEATURE_BLE) ? "/BLE" : "");
 
     printf("silicon revision %d, ", chip_info.revision);
-
-    printf("%dMB %s flash\n", spi_flash_get_chip_size() / (1024 * 1024),
-            (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
 
     for (int i = 10; i >= 0; i--) {
         printf("Restarting in %d seconds...\n", i);
