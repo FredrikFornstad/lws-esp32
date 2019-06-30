@@ -11,4 +11,7 @@ function(export)
 endfunction()
 
 add_subdirectory(lib/libwebsockets)
-target_link_libraries(${COMPONENT_LIB} PUBLIC websockets)
+idf_component_get_property(nvs_flash_lib nvs_flash COMPONENT_LIB)
+idf_component_get_property(mdns_lib mdns COMPONENT_LIB)
+set_property(TARGET websockets APPEND PROPERTY LINK_LIBRARIES ${nvs_flash_lib} ${mdns_lib})
+set_property(TARGET websockets APPEND PROPERTY INTERFACE_LINK_LIBRARIES ${nvs_flash_lib} ${mdns_lib})
