@@ -3,6 +3,8 @@ idf_component_register(SRCS "hello_world_main.c"
         REQUIRES nvs_flash mdns mbedtls lwip nghttp bootloader_support
         )
 
+set(LWS_MBEDTLS_INCLUDE_DIRS ${IDF_PATH}/components/mbedtls/mbedtls/include;${IDF_PATH}/components/mbedtls/port/include)
+
 set(LWS_WITH_ESP32 ON)
 
 function(install)
