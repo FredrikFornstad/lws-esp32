@@ -1,5 +1,5 @@
 idf_component_register(
-        INCLUDE_DIRS "lib/libwebsockets/include" "../build/esp-idf/main/lib/libwebsockets"
+        INCLUDE_DIRS "libwebsockets/include" "${CMAKE_CURRENT_BINARY_DIR}/libwebsockets"
         REQUIRES nvs_flash mdns mbedtls lwip nghttp bootloader_support
         )
 
