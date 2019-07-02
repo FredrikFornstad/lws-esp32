@@ -1,4 +1,4 @@
-idf_component_register(SRCS "hello_world_main.c"
+idf_component_register(
         INCLUDE_DIRS "lib/libwebsockets/include" "../build/esp-idf/main/lib/libwebsockets"
         REQUIRES nvs_flash mdns mbedtls lwip nghttp bootloader_support
         )
@@ -13,7 +13,7 @@ endfunction()
 function(export)
 endfunction()
 
-add_subdirectory(lib/libwebsockets)
+add_subdirectory(libwebsockets)
 idf_component_get_property(nvs_flash_lib nvs_flash COMPONENT_LIB)
 idf_component_get_property(mdns_lib mdns COMPONENT_LIB)
 idf_component_get_property(bootloader_support_lib bootloader_support COMPONENT_LIB)
