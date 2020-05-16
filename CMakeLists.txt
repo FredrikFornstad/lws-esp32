@@ -3,12 +3,10 @@ idf_component_register(
         REQUIRES nvs_flash mdns mbedtls lwip nghttp bootloader_support
         )
 
-cmake_policy(SET CMP0077 NEW)
-
 set(LWS_MBEDTLS_INCLUDE_DIRS ${IDF_PATH}/components/mbedtls/mbedtls/include;${IDF_PATH}/components/mbedtls/port/include)
 
-set(LWS_WITH_ESP32 ON)
-set(LWS_WITH_ZLIB OFF)
+set(LWS_WITH_ESP32 ON CACHE)
+set(LWS_WITH_ZLIB OFF CACHE)
 
 function(install)
 endfunction()
