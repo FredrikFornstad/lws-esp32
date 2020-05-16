@@ -2,6 +2,7 @@ idf_component_register(
         INCLUDE_DIRS "libwebsockets/include" "${IDF_PATH}/components/lws-esp32/libwebsockets"
         REQUIRES nvs_flash mdns mbedtls lwip nghttp bootloader_support
         )
+cmake_policy(SET CMP0077 NEW)
 
 set(LWS_MBEDTLS_INCLUDE_DIRS ${IDF_PATH}/components/mbedtls/mbedtls/include;${IDF_PATH}/components/mbedtls/port/include)
 
