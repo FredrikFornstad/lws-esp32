@@ -5,8 +5,10 @@ idf_component_register(
 
 set(LWS_MBEDTLS_INCLUDE_DIRS ${IDF_PATH}/components/mbedtls/mbedtls/include;${IDF_PATH}/components/mbedtls/port/include)
 
-set(LWS_WITH_ESP32 ON CACHE BOOL esp32)
-set(LWS_WITH_ZLIB OFF CACHE BOOL zlib)
+if(WIN32)
+	message(STATUS "win32 detected, set to off")
+	set(WIN32 OFF)
+endif()
 
 function(install)
 endfunction()
